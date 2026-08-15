@@ -170,7 +170,7 @@ export default function Planta() {
                       className="absolute z-10 -translate-x-1/2 -translate-y-1/2"
                       style={{ left: `${s.x}%`, top: `${s.y}%` }}
                     >
-                      <span className="relative flex h-7 w-7 items-center justify-center sm:h-9 sm:w-9">
+                      <span className="relative flex h-9 w-9 items-center justify-center sm:h-10 sm:w-10">
                         {isActive && (
                           <span className="absolute inset-0 rounded-full border border-gold-300/70 animate-pulse-ring" />
                         )}
@@ -181,7 +181,7 @@ export default function Planta() {
                               : "border-white/50 bg-ink-950/60 text-bone hover:border-gold-300 hover:bg-gold-400/25"
                           }`}
                         >
-                          <s.icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                          <s.icon className="h-4 w-4 sm:h-[18px] sm:w-[18px]" />
                         </span>
                       </span>
                     </motion.button>
@@ -195,7 +195,7 @@ export default function Planta() {
                   <button
                     key={s.id}
                     onClick={() => setActive(s.id)}
-                    className={`rounded-full border px-3.5 py-1.5 text-[0.66rem] font-light tracking-wide transition-all duration-400 ${
+                    className={`rounded-full border px-4 py-2.5 text-[0.7rem] font-light tracking-wide transition-all duration-400 ${
                       s.id === active
                         ? "border-gold-400/70 bg-gold-400/12 text-gold-200"
                         : "border-white/10 text-muted hover:border-gold-400/40 hover:text-mist"

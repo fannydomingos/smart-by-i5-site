@@ -14,14 +14,14 @@ export function Logo({
           SMART
         </span>
         {!compact && (
-          <span className="mt-1 text-[0.5rem] font-light uppercase tracking-[0.34em] text-gold-300/80">
+          <span className="mt-1 text-[0.56rem] font-light uppercase tracking-[0.3em] text-gold-300/80">
             Águas Claras
           </span>
         )}
       </span>
       <span className="h-7 w-px bg-gradient-to-b from-transparent via-gold-400/50 to-transparent" />
       <span className="flex items-center gap-1.5">
-        <span className="text-[0.55rem] font-light uppercase tracking-[0.2em] text-muted">
+        <span className="text-[0.6rem] font-light uppercase tracking-[0.2em] text-muted">
           by
         </span>
         <Image

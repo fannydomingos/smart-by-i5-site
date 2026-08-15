@@ -178,7 +178,7 @@ export default function Pilares() {
       {/* Desktop hint */}
       <div className="pointer-events-none absolute bottom-8 left-1/2 hidden -translate-x-1/2 items-center gap-3 lg:flex">
         <span className="h-px w-8 bg-gold-400/50" />
-        <span className="text-[0.55rem] font-light uppercase tracking-[0.3em] text-muted">
+        <span className="text-[0.6rem] font-light uppercase tracking-[0.3em] text-muted">
           role para avançar
         </span>
         <span className="h-px w-8 bg-gold-400/50" />

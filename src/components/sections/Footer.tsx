@@ -60,12 +60,12 @@ export default function Footer() {
             <h3 className="text-[0.6rem] font-light uppercase tracking-[0.3em] text-gold-300">
               Navegue
             </h3>
-            <ul className="mt-6 space-y-3">
+            <ul className="mt-4 space-y-1">
               {nav.map((n) => (
                 <li key={n.href}>
                   <button
                     onClick={() => scrollToSection(n.href)}
-                    className="group flex items-center gap-2.5 text-[0.84rem] font-light text-muted transition-colors duration-400 hover:text-bone"
+                    className="group flex min-h-11 items-center gap-2.5 py-1 text-[0.84rem] font-light text-muted transition-colors duration-400 hover:text-bone"
                   >
                     <span className="h-px w-0 bg-gold-400 transition-all duration-500 group-hover:w-4" />
                     {n.label}
@@ -94,7 +94,7 @@ export default function Footer() {
                 </div>
                 <a
                   href={`mailto:${site.email}`}
-                  className="mt-1 block text-mist transition-colors hover:text-gold-200"
+                  className="mt-1 inline-flex min-h-11 items-center text-mist transition-colors hover:text-gold-200"
                 >
                   {site.email}
                 </a>

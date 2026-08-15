@@ -68,7 +68,7 @@ export default function Header() {
             <Logo compact={scrolled} />
           </button>
 
-          <nav className="hidden items-center gap-1 lg:flex">
+          <nav className="hidden items-center gap-1 xl:flex">
             {nav.map((n) => (
               <button
                 key={n.href}
@@ -98,7 +98,7 @@ export default function Header() {
             <button
               onClick={() => setOpen((v) => !v)}
               aria-label={open ? "Fechar menu" : "Abrir menu"}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-bone transition-colors hover:border-gold-400/50 hover:text-gold-200 lg:hidden"
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-bone transition-colors hover:border-gold-400/50 hover:text-gold-200 xl:hidden"
             >
               {open ? (
                 <IconClose className="h-5 w-5" />
@@ -120,7 +120,7 @@ export default function Header() {
       <AnimatePresence>
         {open && (
           <motion.div
-            className="fixed inset-0 z-[110] bg-ink-950/97 backdrop-blur-xl lg:hidden"
+            className="fixed inset-0 z-[110] bg-ink-950/97 backdrop-blur-xl xl:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

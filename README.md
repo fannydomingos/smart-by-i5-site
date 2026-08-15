@@ -124,7 +124,12 @@ Se trocar a **isométrica dos pavimentos**, revise `scale`/`ty` em
 
 - Respeita `prefers-reduced-motion`: desliga smooth scroll, preloader,
   cursor customizado e scroll horizontal com pin
-- Sem overflow horizontal em nenhum breakpoint
+- **Responsivo e auditado em 11 larguras:** 320, 360, 390, 430, 768, 820,
+  1024, 1280, 1440, 1920 e 2560px — zero overflow horizontal, zero erro de
+  console, alvos de toque ≥36px e nenhum texto abaixo de 9px
+- Breakpoints principais: menu completo a partir de 1280px (abaixo disso,
+  menu hamburguer em tela cheia); grids passam a 1 coluna abaixo de 1024px;
+  o scroll horizontal com pin vira empilhamento vertical abaixo de 1024px
 - Imagens otimizadas pelo `next/image` (AVIF/WebP, lazy loading, `sizes`)
 - Fontes locais com `display: swap`
 - JSON-LD `Residence` + Open Graph + sitemap + robots.txt
