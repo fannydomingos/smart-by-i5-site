@@ -185,28 +185,6 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll cue */}
-      <motion.button
-        onClick={() => scrollToSection("#projeto")}
-        aria-label="Rolar"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 3, duration: 1 }}
-        style={{ opacity: fade }}
-        className="absolute bottom-24 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 md:flex"
-      >
-        <span className="text-[0.6rem] font-light uppercase tracking-[0.3em] text-mist/60">
-          scroll
-        </span>
-        <span className="relative h-12 w-px overflow-hidden bg-white/15">
-          <motion.span
-            className="absolute inset-x-0 top-0 h-4 bg-gold-300"
-            animate={{ y: [-16, 48] }}
-            transition={{ duration: 1.9, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </span>
-      </motion.button>
-
       <span className="sr-only">{site.description}</span>
     </section>
   );
