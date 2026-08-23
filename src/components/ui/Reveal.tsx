@@ -145,7 +145,7 @@ export function SplitWords({
       {words.map((w, i) => (
         <span
           key={`${w}-${i}`}
-          className="inline-block overflow-hidden align-bottom"
+          className="inline-block overflow-hidden align-bottom pb-[0.16em] -mb-[0.16em]"
           aria-hidden
         >
           <motion.span
@@ -192,5 +192,25 @@ export function GoldLine({
       viewport={{ once: true, amount: 0.6 }}
       transition={{ duration: 1.1, delay, ease: EASE }}
     />
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* ImgNote — legenda obrigatória sob imagens de divulgação            */
+/* ------------------------------------------------------------------ */
+
+export function ImgNote({
+  children,
+  className = "",
+}: {
+  children?: ReactNode;
+  className?: string;
+}) {
+  return (
+    <p
+      className={`text-[0.6rem] font-light leading-relaxed text-muted/75 ${className}`}
+    >
+      {children ?? "Imagem ilustrativa."}
+    </p>
   );
 }

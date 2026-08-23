@@ -5,7 +5,7 @@ import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
 import { Logo } from "./ui/Logo";
 import { nav, waHref } from "@/lib/site";
 import { IconMenu, IconClose, IconWhatsApp } from "./ui/Icons";
-import { scrollToSection } from "./SmoothScroll";
+import { scrollToSection, lockScroll } from "./SmoothScroll";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -35,10 +35,8 @@ export default function Header() {
   }, [open]);
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
+    lockScroll(open);
+    return () => lockScroll(false);
   }, [open]);
 
   const go = (href: string) => {
@@ -127,38 +125,44 @@ export default function Header() {
             transition={{ duration: 0.4 }}
           >
             <div className="noise absolute inset-0" />
-            <div className="flex h-full flex-col justify-center px-8 pt-20">
-              {nav.map((n, i) => (
-                <motion.button
-                  key={n.href}
-                  onClick={() => go(n.href)}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 20 }}
-                  transition={{ delay: 0.08 + i * 0.06, duration: 0.6, ease: EASE }}
-                  className="group flex items-baseline gap-4 border-b border-white/[0.07] py-5 text-left"
-                >
-                  <span className="font-display text-[0.6rem] tracking-[0.2em] text-gold-400/70">
-                    0{i + 1}
-                  </span>
-                  <span className="font-display text-2xl font-extralight tracking-wide text-bone transition-colors group-hover:text-gold-200">
-                    {n.label}
-                  </span>
-                </motion.button>
-              ))}
+            {/* h-full + flex-col + my-auto no filho: centraliza quando cabe e
+                rola sem cortar o topo quando a tela é baixa. */}
+            <div className="flex h-full flex-col overflow-y-auto px-7 pb-6 pt-[calc(var(--header-h)_+_24px)] sm:pb-10">
+              <div className="my-auto w-full">
+                {nav.map((n, i) => (
+                  <motion.button
+                    key={n.href}
+                    onClick={() => go(n.href)}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 20 }}
+                    transition={{
+                      delay: 0.08 + i * 0.06,
+                      duration: 0.6,
+                      ease: EASE,
+                    }}
+                    className="group flex w-full items-center gap-3 border-b border-white/[0.07] py-4 text-left sm:py-5"
+                  >
+                    <span className="h-1 w-1 shrink-0 rotate-45 bg-gold-400/60 transition-all duration-400 group-hover:scale-150 group-hover:bg-gold-300" />
+                    <span className="font-display text-2xl font-extralight tracking-wide text-bone transition-colors group-hover:text-gold-200">
+                      {n.label}
+                    </span>
+                  </motion.button>
+                ))}
 
-              <motion.a
-                href={waHref()}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.55, duration: 0.6, ease: EASE }}
-                className="mt-10 inline-flex items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-gold-300 to-gold-500 px-7 py-4 text-[0.72rem] font-medium uppercase tracking-[0.2em] text-ink-950"
-              >
-                <IconWhatsApp className="h-4 w-4" />
-                Falar com um consultor
-              </motion.a>
+                <motion.a
+                  href={waHref()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.55, duration: 0.6, ease: EASE }}
+                  className="mt-6 flex w-full items-center justify-center gap-2.5 sm:mt-9 rounded-full bg-gradient-to-r from-gold-300 to-gold-500 px-7 py-4 text-[0.72rem] font-medium uppercase tracking-[0.2em] text-ink-950"
+                >
+                  <IconWhatsApp className="h-4 w-4" />
+                  Falar com um consultor
+                </motion.a>
+              </div>
             </div>
           </motion.div>
         )}

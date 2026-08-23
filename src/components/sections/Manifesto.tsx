@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform, type MotionValue } from "framer-motion
 import { GoldLine } from "../ui/Reveal";
 
 const PARAGRAPH =
-  "Mudar de endereço não significa apenas trocar de CEP. É abrir espaço para uma nova rotina, para novos encontros e para experiências que elevam seu padrão de vida. Porque quando você escolhe bem onde morar, não está apenas comprando um imóvel — está conquistando um estilo de vida.";
+  "Mudar de endereço não significa apenas trocar de CEP. É abrir espaço para uma nova rotina, para novos encontros e para experiências que elevam o seu dia a dia. Porque quando você escolhe bem onde morar, está conquistando um novo padrão de vida.";
 
 function Word({
   children,
@@ -65,10 +65,9 @@ export default function Manifesto() {
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-4xl font-display text-[2rem] font-extralight leading-[1.08] tracking-[-0.02em] text-bone sm:text-[3.2rem] lg:text-[4rem]"
         >
-          Para quem exige mais
+          O endereço
           <br />
-          do que morar.{" "}
-          <span className="text-gold-grad font-light">VIVER.</span>
+          <span className="text-gold-grad font-light">muda tudo.</span>
         </motion.h2>
 
         <div
@@ -97,7 +96,7 @@ export default function Manifesto() {
         >
           <span className="h-px flex-1 bg-white/10" />
           <span className="font-display text-sm font-light tracking-[0.2em] text-gold-300">
-            Mais do que morar, viver.
+            Um novo padrão de vida.
           </span>
         </motion.div>
       </div>

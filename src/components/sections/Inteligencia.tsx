@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Reveal, Stagger, StaggerItem, GoldLine } from "../ui/Reveal";
+import { Reveal, Stagger, StaggerItem, GoldLine, ImgNote } from "../ui/Reveal";
 import {
   IconBox,
   IconPhone,
@@ -64,7 +64,7 @@ export default function Inteligencia() {
               <motion.div className="absolute -inset-y-[16%] inset-x-0" style={{ y }}>
                 <Image
                   src="/img/delivery.jpg"
-                  alt="Armários inteligentes de delivery e ferramentaria do SMART by i5"
+                  alt="Armários inteligentes de delivery e ferramentaria do SMARTER by i5 stay"
                   fill
                   sizes="(max-width: 1024px) 100vw, 42vw"
                   className="object-cover"
@@ -80,6 +80,8 @@ export default function Inteligencia() {
                 </span>
               </div>
             </div>
+
+            <ImgNote className="mt-3">Imagem ilustrativa.</ImgNote>
           </Reveal>
 
           {/* Copy + grid */}

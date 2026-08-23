@@ -31,8 +31,8 @@ export default function Footer() {
           <div>
             <Logo />
             <p className="mt-6 max-w-xs text-[0.82rem] font-light leading-relaxed text-muted">
-              Inteligência para viver. Conforto para ficar. Studios inteligentes
-              em Águas Claras, com gestão i5 Stay.
+              Inteligência para viver. Conforto para ficar. Apartamentos
+              inteligentes em Águas Claras, com gestão i5 stay.
             </p>
 
             <div className="mt-7 flex items-center gap-3">
@@ -146,9 +146,10 @@ export default function Footer() {
             © {year} {site.brand}. Todos os direitos reservados.
           </span>
           <span className="max-w-xl leading-relaxed">
-            Imagens meramente ilustrativas. Projeto sujeito a alterações
-            conforme aprovação dos órgãos competentes. Memorial descritivo
-            prevalece sobre o material publicitário.
+            Imagens meramente ilustrativas. Apartamento entregue sem mobília.
+            Projeto sujeito a alterações conforme aprovação dos órgãos
+            competentes. Memorial descritivo prevalece sobre o material
+            publicitário.
           </span>
         </div>
       </div>

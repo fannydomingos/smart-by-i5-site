@@ -5,17 +5,17 @@
  */
 
 export const site = {
-  name: "SMART",
-  brand: "SMART by i5",
+  name: "SMARTER",
+  brand: "SMARTER by i5 stay",
   tagline: "Inteligência para viver. Conforto para ficar.",
   description:
-    "SMART by i5 — studios inteligentes em Águas Claras. Planta com maior aproveitamento por m², comodidade de hotel e alta rentabilidade. QS 5, Rua 310, Lote 12.",
+    "SMARTER by i5 stay — apartamentos inteligentes em Águas Claras. Plantas inteligentes, serviços hoteleiros à sua disposição e alta rentabilidade. QS 5, Rua 310, Lote 12.",
   url: "https://smart.i5incorp.com.br",
 
   // ⚠️ Substituir pelo número real (formato internacional, só dígitos)
   whatsapp: "5561999999999",
   whatsappMessage:
-    "Olá! Vim pelo site do SMART by i5 e quero saber mais sobre o empreendimento em Águas Claras.",
+    "Olá! Vim pelo site do SMARTER by i5 stay e quero saber mais sobre o empreendimento em Águas Claras.",
 
   phone: "3333-33333",
   email: "atendimento@i5imob.com.br",

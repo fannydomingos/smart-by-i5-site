@@ -8,9 +8,9 @@ import { waHref } from "@/lib/site";
 import { IconWhatsApp, IconCheck } from "../ui/Icons";
 
 const perks = [
-  "Sinal ZERO",
+  "Sinal facilitado",
   "Condição de pagamento única",
-  "Sem intermediários",
+  "Gestão i5 stay",
   "Tour guiado pelo decorado",
 ];
 
@@ -31,7 +31,7 @@ export default function CtaFinal() {
       <motion.div className="absolute -inset-y-[18%] inset-x-0" style={{ y }}>
         <Image
           src="/img/nasce-building.jpg"
-          alt="SMART by i5 — fachada ao anoitecer"
+          alt="SMARTER by i5 stay — fachada ao anoitecer"
           fill
           sizes="100vw"
           className="object-cover"
@@ -48,7 +48,7 @@ export default function CtaFinal() {
             <span className="inline-flex items-center gap-2.5 rounded-full border border-gold-400/35 bg-gold-400/[0.07] px-4 py-2 backdrop-blur-sm">
               <span className="h-1.5 w-1.5 animate-shimmer rounded-full bg-gold-300" />
               <span className="text-[0.6rem] font-light uppercase tracking-[0.28em] text-gold-200">
-                Lançamento · Aproveite Sinal ZERO
+                Lançamento · Sinal facilitado
               </span>
             </span>
           </Reveal>
@@ -74,7 +74,7 @@ export default function CtaFinal() {
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <a
                 href={waHref(
-                  "Olá! Vim pelo site do SMART by i5 e quero receber a tabela de valores e agendar uma visita ao decorado."
+                  "Olá! Vim pelo site do SMARTER by i5 stay e quero receber a tabela de valores e agendar uma visita ao decorado."
                 )}
                 target="_blank"
                 rel="noopener noreferrer"

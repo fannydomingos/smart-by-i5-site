@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Reveal, GoldLine } from "../ui/Reveal";
+import { Reveal, GoldLine, ImgNote } from "../ui/Reveal";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -11,8 +11,8 @@ const floors = [
   {
     id: "geral",
     label: "Visão geral",
-    title: "Privacidade bem planejada",
-    text: "Cada espaço do SMART foi organizado para oferecer conforto, praticidade e privacidade em todos os momentos.",
+    title: "Um empreendimento bem planejado",
+    text: "Cada espaço do SMARTER foi organizado para oferecer conforto, praticidade e privacidade em todos os momentos.",
     scale: 1,
     ty: 0,
   },
@@ -71,7 +71,7 @@ export default function Pavimentos() {
                 >
                   <Image
                     src="/img/pavimentos.jpg"
-                    alt="Vista isométrica dos pavimentos do SMART by i5"
+                    alt="Vista isométrica dos pavimentos do SMARTER by i5 stay"
                     fill
                     sizes="(max-width: 1024px) 100vw, 55vw"
                     className="object-cover"
@@ -106,15 +106,17 @@ export default function Pavimentos() {
                 ))}
               </div>
             </div>
+
+            <ImgNote className="mt-3">Imagem ilustrativa.</ImgNote>
           </Reveal>
 
           {/* Copy */}
           <div>
             <Reveal>
               <h2 className="font-display text-[2rem] font-extralight leading-[1.06] tracking-[-0.02em] text-bone sm:text-[2.8rem]">
-                Privacidade
+                Um empreendimento
                 <br />
-                <span className="text-gold-grad font-light">bem planejada.</span>
+                <span className="text-gold-grad font-light">bem planejado.</span>
               </h2>
             </Reveal>
 

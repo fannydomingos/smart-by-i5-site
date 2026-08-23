@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Reveal, GoldLine } from "../ui/Reveal";
+import { Reveal, GoldLine, ImgNote } from "../ui/Reveal";
 import { IconSofa, IconTrend, IconCheck, IconArrow } from "../ui/Icons";
 import { waHref } from "@/lib/site";
 
@@ -16,7 +16,7 @@ const panels = [
     kicker: "Para quem mora",
     title: "Serviços hoteleiros e menos preocupação.",
     img: "/img/cowork.jpg",
-    alt: "Lounge e cowork do SMART by i5",
+    alt: "Lounge e cowork do SMARTER by i5 stay",
     items: [
       "Segurança monitorada 24h",
       "Planta que oferece mais para o seu dia a dia",
@@ -24,7 +24,7 @@ const panels = [
       "Serviços pay per use sob demanda",
       "Suporte para limpeza e pequenos reparos",
     ],
-    cta: "Quero morar no SMART",
+    cta: "Quero morar no SMARTER",
   },
   {
     id: "investir",
@@ -32,7 +32,7 @@ const panels = [
     kicker: "Para quem investe",
     title: "Um produto desenhado para performance.",
     img: "/img/invest-building.jpg",
-    alt: "Fachada do SMART by i5 ao anoitecer",
+    alt: "Fachada do SMARTER by i5 stay ao anoitecer",
     items: [
       "Locação das unidades sem preocupações",
       "Airbnb, Booking e principais plataformas",
@@ -40,7 +40,7 @@ const panels = [
       "Relatórios de prestação de contas com transparência",
       "Bairro com alta valorização",
     ],
-    cta: "Quero investir no SMART",
+    cta: "Quero investir no SMARTER",
   },
 ];
 
@@ -143,7 +143,7 @@ export default function InvestirMorar() {
 
                   <a
                     href={waHref(
-                      `Olá! Vim pelo site do SMART by i5. ${p.cta}. Pode me enviar mais informações?`
+                      `Olá! Vim pelo site do SMARTER by i5 stay. ${p.cta}. Pode me enviar mais informações?`
                     )}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -158,6 +158,10 @@ export default function InvestirMorar() {
             );
           })}
         </div>
+
+        <ImgNote className="mt-5">
+          Imagens ilustrativas. Apartamento entregue sem mobília.
+        </ImgNote>
       </div>
     </section>
   );

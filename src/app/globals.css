@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* ---- Brand palette: SMART by i5 ---- */
+  /* ---- Brand palette: SMARTER by i5 stay ---- */
   --color-ink-950: #04070d;
   --color-ink-900: #070c16;
   --color-ink-850: #0a1120;
@@ -118,6 +118,11 @@ body {
 
   .card-hair {
     border: 1px solid color-mix(in srgb, var(--color-gold-400) 16%, transparent);
+  }
+
+  /* Camada decorativa de textura. Nunca deve capturar toque/clique. */
+  .noise {
+    pointer-events: none;
   }
 
   .noise::after {

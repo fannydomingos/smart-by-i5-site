@@ -40,7 +40,7 @@ export default function Hero() {
       <motion.div className="absolute inset-0" style={{ y, scale }}>
         <Image
           src="/img/facade-dusk.jpg"
-          alt="Fachada do SMART by i5 em Águas Claras ao entardecer"
+          alt="Fachada do SMARTER by i5 stay em Águas Claras ao entardecer"
           fill
           priority
           quality={92}
@@ -105,8 +105,8 @@ export default function Hero() {
           transition={{ delay: 2.35, duration: 1, ease: EASE }}
           className="mt-7 max-w-lg text-[0.95rem] font-light leading-relaxed text-mist sm:text-base"
         >
-          O <strong className="font-normal text-bone">SMART</strong> é uma nova
-          forma de viver em Águas Claras. Studios inteligentes, design
+          O <strong className="font-normal text-bone">SMARTER</strong> é uma
+          nova forma de viver em Águas Claras. Apartamentos inteligentes, design
           contemporâneo e espaços pensados para o seu ritmo, sua rotina e suas
           escolhas.
         </motion.p>
@@ -147,10 +147,10 @@ export default function Hero() {
           className="mt-14 grid max-w-3xl grid-cols-2 gap-px overflow-hidden rounded-xl border border-white/[0.08] bg-white/[0.05] sm:grid-cols-4"
         >
           {[
-            { k: "Sinal", v: "ZERO" },
+            { k: "Sinal", v: "facilitado" },
+            { k: "Plantas", v: "inteligentes" },
+            { k: "Gestão", v: "i5 stay" },
             { k: "Grupo i5", v: "19 anos" },
-            { k: "Gestão", v: "i5 Stay" },
-            { k: "Lazer", v: "Panorâmico" },
           ].map((s) => (
             <div
               key={s.k}

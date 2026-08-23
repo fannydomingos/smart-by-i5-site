@@ -50,6 +50,17 @@ export default function SmoothScroll() {
   return null;
 }
 
+/** Trava/destrava a rolagem — usado pelo menu mobile em tela cheia. */
+export function lockScroll(lock: boolean) {
+  const lenis = (window as unknown as { __lenis?: Lenis }).__lenis;
+  if (lenis) {
+    if (lock) lenis.stop();
+    else lenis.start();
+  }
+  document.documentElement.style.overflow = lock ? "hidden" : "";
+  document.body.style.overflow = lock ? "hidden" : "";
+}
+
 export function scrollToSection(hash: string) {
   const el = document.querySelector(hash);
   if (!el) return;

@@ -12,41 +12,41 @@ const companies = [
   {
     id: "incorp",
     name: "i5 incorp",
-    claim: "Viver bem é uma escolha inteligente.",
-    tags: ["19 anos de inovação", "+2.000 aptos em participações", "Plantas jamais vistas"],
-    text: "A inteligência muda tudo. Não nascemos para repetir o óbvio, mas para pensar diferente. Revisitamos cada metro quadrado para provar que viver bem não é ter mais espaço, é ter mais inteligência. Projetos compactos, modernos e bem localizados. Porque o endereço muda tudo.",
+    claim: "Compacto no tamanho. Gigante em possibilidades.",
+    tags: ["Melhores espaços", "Melhores localizações", "Mais qualidade de vida"],
+    text: "Viver bem não significa ter mais espaço. Significa ter espaços melhores. Cada metro quadrado com propósito, com projetos modernos, funcionais e inteligentes, nas melhores localizações, mais perto do trabalho, dos serviços, do lazer e de tudo o que importa.",
     img: "/img/nasce-building.jpg",
   },
   {
     id: "imob",
     name: "i5 imob",
-    claim: "Comprar um imóvel é uma decisão de vida.",
-    tags: ["+ justo, sem intermediários", "+ inteligente, informação digital", "+ humano, tratamento VIP"],
-    text: "Chega de imobiliárias todas iguais. Chega de corretores despreparados, pressa e discurso vazio. Aqui existe processo, inteligência e atendimento de verdade. Menos intermediários. Mais clareza. Mais eficiência para oferecer uma condição de pagamento única. Você no centro de tudo.",
+    claim: "Menos intermediários. Mais possibilidades.",
+    tags: ["Menos burocracia", "Menos barreiras", "Mais possibilidades"],
+    text: "Comprar um imóvel é uma decisão importante. Mas não precisa ser complicado. Menos burocracia, menos barreiras e mais possibilidades, com informação clara, transparência, agilidade, tecnologia e inteligência para tornar a compra mais simples, direta e acessível.",
     img: "/img/facade-dusk.jpg",
   },
   {
     id: "hotel",
     name: "i5 hotel",
-    claim: "Onde tecnologia, conforto e inteligência se encontram.",
-    tags: ["Melhor avaliado da região", "+ inovador", "10 anos"],
-    text: "Nosso hotel não nasceu para ser apenas mais um. Nasceu para redefinir o padrão. Moderno, sofisticado e avaliado como o melhor hotel de toda a região, ele foi pensado para quem valoriza conforto, design, tecnologia e atendimento premium — sem excessos, sem desperdícios, com muita inteligência.",
+    claim: "Tecnologia que simplifica. Hospitalidade que acolhe.",
+    tags: ["Tecnologia simplifica", "Conforto acolhe", "Pessoas fazem a diferença"],
+    text: "Uma grande experiência vai muito além de uma boa estrutura. Tecnologia simplifica, conforto acolhe e pessoas fazem a diferença. Um atendimento próximo e humano para tornar cada estadia mais simples, agradável e especial. Há mais de 10 anos, somos reconhecidos pelos nossos clientes como um dos melhores hotéis da região.",
     img: "/img/hotel-i5.jpg",
   },
   {
     id: "stay",
     name: "i5 stay",
-    claim: "Moradia por assinatura, sem complicação.",
-    tags: ["Sem fiador", "Gestão profissional", "Alta rentabilidade"],
-    text: "Solução completa para administração de imóveis de curta, média e longa permanência. Cuidamos de todo o processo: comercialização nas principais plataformas, gestão de reservas, limpeza, manutenção, financeiro e relacionamento com o hóspede ou morador. Para quem é proprietário, é liberdade — com o imóvel operando no máximo potencial.",
+    claim: "Morar bem nunca foi tão simples.",
+    tags: ["Seu imóvel", "Nosso cuidado", "Sua tranquilidade"],
+    text: "Seu imóvel. Nosso cuidado. Sua tranquilidade. Para quem tem o imóvel, gestão simplificada com tecnologia e inteligência. Menos preocupação. Mais tranquilidade. Para quem mora, uma experiência simples, prática e descomplicada, com tecnologia e serviços que facilitam o dia a dia.",
     img: "/img/rooftop.jpg",
   },
   {
     id: "cowork",
     name: "i5 cowork",
-    claim: "Um novo padrão de trabalhar.",
-    tags: ["24 horas", "Salas de reunião e auditório", "Serviço de hotel"],
-    text: "O único com funcionamento pleno 24 horas, que une a estrutura completa de um coworking com a sofisticação, o serviço e o cuidado de um hotel de alto padrão. No coração de Águas Claras: salas de reunião elegantes, auditório completo, espaços de refeição, lounges e espaço café.",
+    claim: "Seu negócio em outro nível.",
+    tags: ["24 horas", "Tudo pronto", "Mais valor"],
+    text: "O espaço onde você trabalha também fala sobre a sua empresa. 24 horas com a estrutura e a conveniência de um hotel. Tudo pronto, sem burocracia e sem preocupação com a operação. Mais valor, mais profissionalismo para o seu negócio e uma experiência melhor para o seu cliente.",
     img: "/img/cowork.jpg",
   },
 ];
@@ -92,7 +92,7 @@ const stats = [
   { icon: IconAward, value: 19, suffix: "", label: "anos de inovação" },
   { icon: IconChart, value: 2000, prefix: "+", label: "aptos em participações" },
   { icon: IconTrophy, value: 10, suffix: "", label: "anos de hospitalidade" },
-  { icon: IconUser, value: 1, prefix: "#", label: "hotel melhor avaliado" },
+  { icon: IconUser, value: 5, suffix: "", label: "empresas no grupo" },
 ];
 
 export default function Grupo() {
@@ -195,7 +195,7 @@ export default function Grupo() {
                     >
                       <div className="pl-6 pt-4">
                         <p className="text-[0.9rem] font-light text-gold-200/90">
-                          {c.id === co.id ? co.claim : co.claim}
+                          {co.claim}
                         </p>
                         <p className="mt-3 max-w-lg text-[0.82rem] font-light leading-relaxed text-muted">
                           {co.text}
@@ -261,21 +261,21 @@ export default function Grupo() {
           <div className="mt-14 grid gap-6 rounded-2xl card-hair bg-ink-950/60 p-8 sm:p-10 lg:grid-cols-[1fr_1fr] lg:items-center">
             <div>
               <h3 className="font-display text-[1.5rem] font-extralight leading-snug text-bone sm:text-[2rem]">
-                Gestão i5 Stay: já nasce com{" "}
+                Gestão i5 stay: já nasce com{" "}
                 <span className="text-gold-grad font-light">
                   experiência de 10 anos.
                 </span>
               </h3>
               <p className="mt-4 max-w-lg text-[0.85rem] font-light leading-relaxed text-mist">
                 Quem opera hospitalidade de verdade sabe como cuidar de cada
-                detalhe. Essa experiência agora inspira o SMART, unindo conforto,
+                detalhe. Essa experiência agora inspira o SMARTER, unindo conforto,
                 gestão e credibilidade em um novo produto imobiliário.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-white/[0.07]">
               {[
                 "10 anos de experiência com hospedagem",
-                "Hotel melhor avaliado de Águas Claras",
+                "Um dos melhores hotéis avaliados da região",
                 "Excelência em operação e atendimento",
                 "Confiança para morar, investir e rentabilizar",
               ].map((t) => (

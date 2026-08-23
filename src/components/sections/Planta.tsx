@@ -3,8 +3,9 @@
 import Image from "next/image";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Reveal, GoldLine } from "../ui/Reveal";
+import { Reveal, GoldLine, ImgNote } from "../ui/Reveal";
 import {
+  IconTouch,
   IconBed,
   IconKitchen,
   IconCabinet,
@@ -43,7 +44,7 @@ const spots: Spot[] = [
     y: 17,
     icon: IconKitchen,
     title: "Cozinha completa com 2 bancadas",
-    text: "Mais superfície para preparar e aproveitar — uma cozinha de verdade em um studio.",
+    text: "Mais superfície para preparar e aproveitar — uma cozinha completa, de verdade.",
     meta: "2 bancadas",
     side: "left",
   },
@@ -135,14 +136,33 @@ export default function Planta() {
           </Reveal>
         </div>
 
+        {/* Chamada de interação — deixa claro que os pontos são clicáveis */}
+        <div className="mt-10 flex items-center gap-3">
+          <span className="relative flex h-7 w-7 shrink-0 items-center justify-center">
+            <span className="absolute inset-0 rounded-full border border-gold-300/60 animate-pulse-ring" />
+            <span className="flex h-full w-full items-center justify-center rounded-full border border-gold-300/80 bg-gold-400/20 text-gold-200">
+              <IconTouch className="h-4 w-4" />
+            </span>
+          </span>
+          <p className="text-[0.78rem] font-light leading-snug text-gold-200 sm:text-[0.85rem]">
+            <span className="lg:hidden">
+              Toque nos pontos dourados da planta para ver cada ambiente.
+            </span>
+            <span className="hidden lg:inline">
+              Passe o mouse ou clique nos pontos dourados da planta para explorar
+              cada ambiente.
+            </span>
+          </p>
+        </div>
+
         {/* Interactive plan */}
-        <div className="mt-12 grid gap-8 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-12">
+        <div className="mt-5 grid gap-6 lg:mt-8 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-12">
           <Reveal amount={0.15}>
             <div className="relative">
               <div className="relative overflow-hidden rounded-2xl card-hair bg-ink-950 shadow-lift">
                 <Image
                   src="/img/planta.jpg"
-                  alt="Planta humanizada do studio SMART by i5"
+                  alt="Planta humanizada do apartamento SMARTER by i5 stay"
                   width={790}
                   height={610}
                   sizes="(max-width: 1024px) 100vw, 62vw"
@@ -170,18 +190,20 @@ export default function Planta() {
                       className="absolute z-10 -translate-x-1/2 -translate-y-1/2"
                       style={{ left: `${s.x}%`, top: `${s.y}%` }}
                     >
-                      <span className="relative flex h-9 w-9 items-center justify-center sm:h-10 sm:w-10">
-                        {isActive && (
-                          <span className="absolute inset-0 rounded-full border border-gold-300/70 animate-pulse-ring" />
-                        )}
+                      <span className="relative flex h-10 w-10 items-center justify-center sm:h-11 sm:w-11">
+                        {/* halo pulsante permanente: sinaliza que é clicável */}
                         <span
-                          className={`flex h-full w-full items-center justify-center rounded-full border backdrop-blur-md transition-all duration-500 ${
+                          className="absolute inset-0 rounded-full border border-gold-300/70 animate-pulse-ring"
+                          style={{ animationDelay: `${i * 0.4}s` }}
+                        />
+                        <span
+                          className={`flex h-full w-full items-center justify-center rounded-full border-2 backdrop-blur-md transition-all duration-500 ${
                             isActive
-                              ? "border-gold-300 bg-gold-400 text-ink-950 scale-110"
-                              : "border-white/50 bg-ink-950/60 text-bone hover:border-gold-300 hover:bg-gold-400/25"
+                              ? "scale-110 border-gold-50 bg-gold-400 text-ink-950 shadow-[0_0_0_7px_rgba(207,165,104,0.20)]"
+                              : "border-gold-300/90 bg-ink-950/80 text-gold-200 shadow-[0_0_0_4px_rgba(207,165,104,0.13)] hover:scale-105 hover:bg-gold-400/30"
                           }`}
                         >
-                          <s.icon className="h-4 w-4 sm:h-[18px] sm:w-[18px]" />
+                          <s.icon className="h-[18px] w-[18px] sm:h-5 sm:w-5" />
                         </span>
                       </span>
                     </motion.button>
@@ -189,8 +211,13 @@ export default function Planta() {
                 })}
               </div>
 
-              {/* legend chips (mobile-friendly) */}
-              <div className="mt-4 flex flex-wrap gap-2">
+              <ImgNote className="mt-3">
+                Planta humanizada. Apartamento entregue sem mobília. Imagem
+                ilustrativa.
+              </ImgNote>
+
+              {/* atalhos por nome — só no desktop, onde há espaço lateral */}
+              <div className="mt-4 hidden flex-wrap gap-2 lg:flex">
                 {spots.map((s) => (
                   <button
                     key={s.id}
@@ -210,7 +237,7 @@ export default function Planta() {
 
           {/* Detail panel */}
           <Reveal delay={0.1} direction="left" className="lg:pb-4">
-            <div className="sticky top-28 flex min-h-[280px] flex-col justify-between rounded-2xl card-hair bg-ink-950/70 p-7 backdrop-blur-md sm:p-8">
+            <div className="flex flex-col justify-between rounded-2xl border-2 border-gold-400/25 bg-ink-950/80 p-6 backdrop-blur-md sm:p-8 lg:sticky lg:top-28 lg:min-h-[280px]">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={current.id}
@@ -240,10 +267,10 @@ export default function Planta() {
                 </motion.div>
               </AnimatePresence>
 
-              <div className="mt-8 border-t border-white/[0.07] pt-5">
+              <div className="mt-8 hidden border-t border-white/[0.07] pt-5 lg:block">
                 <p className="text-[0.72rem] font-light leading-relaxed text-muted">
-                  Toque nos pontos da planta para explorar cada solução do
-                  projeto.
+                  Use os pontos da planta ou os atalhos acima para percorrer
+                  cada solução do projeto.
                 </p>
               </div>
             </div>

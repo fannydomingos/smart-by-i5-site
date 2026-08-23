@@ -38,7 +38,7 @@ const jsonLd = {
   amenityFeature: [
     "Lazer panorâmico",
     "SPA aquecido",
-    "Churrasqueira a gás",
+    "Churrasqueira",
     "Brinquedoteca",
     "Pet place",
     "Armários inteligentes para delivery",

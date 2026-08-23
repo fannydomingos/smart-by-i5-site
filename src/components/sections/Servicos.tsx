@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Reveal, Stagger, StaggerItem, GoldLine } from "../ui/Reveal";
+import { Reveal, Stagger, StaggerItem, GoldLine, ImgNote } from "../ui/Reveal";
 import {
   IconQuestion,
   IconBroom,
@@ -68,9 +68,9 @@ export default function Servicos() {
           <div>
             <Reveal>
               <h2 className="max-w-xl font-display text-[2rem] font-extralight leading-[1.06] tracking-[-0.02em] text-bone sm:text-[3rem]">
-                Que tal viver com a{" "}
+                Serviços hoteleiros{" "}
                 <span className="text-gold-grad font-light">
-                  comodidade de um hotel?
+                  à sua disposição.
                 </span>
               </h2>
             </Reveal>
@@ -162,7 +162,7 @@ export default function Servicos() {
               <div className="group relative aspect-[4/5] overflow-hidden rounded-2xl card-hair">
                 <Image
                   src="/img/rooftop-woman.jpg"
-                  alt="Moradora aproveitando o lazer panorâmico do SMART by i5"
+                  alt="Moradora aproveitando o lazer panorâmico do SMARTER by i5 stay"
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
                   className="object-cover transition-transform duration-[1.6s] ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-105"
@@ -176,6 +176,8 @@ export default function Servicos() {
                   </p>
                 </div>
               </div>
+
+              <ImgNote className="mt-3">Imagem ilustrativa.</ImgNote>
             </Reveal>
 
             <Stagger className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-white/[0.07]">

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Reveal, Stagger, StaggerItem, GoldLine } from "../ui/Reveal";
+import { Reveal, Stagger, StaggerItem, GoldLine, ImgNote } from "../ui/Reveal";
 
 const details = [
   {
@@ -59,7 +59,7 @@ export default function DesignSec() {
               <motion.div className="absolute -inset-y-[18%] inset-x-0" style={{ y }}>
                 <Image
                   src="/img/facade-portrait.jpg"
-                  alt="Fachada contemporânea do SMART by i5 com iluminação arquitetônica"
+                  alt="Fachada contemporânea do SMARTER by i5 stay com iluminação arquitetônica"
                   fill
                   sizes="(max-width: 1024px) 100vw, 45vw"
                   className="object-cover"
@@ -67,6 +67,8 @@ export default function DesignSec() {
               </motion.div>
               <div className="absolute inset-0 bg-gradient-to-t from-ink-900/70 via-transparent to-transparent" />
             </div>
+
+            <ImgNote className="mt-3">Imagem ilustrativa.</ImgNote>
           </Reveal>
 
           {/* Copy */}

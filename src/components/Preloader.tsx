@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
-const LETTERS = ["S", "M", "A", "R", "T"];
+const LETTERS = ["S", "M", "A", "R", "T", "E", "R"];
 
 export default function Preloader() {
   const [done, setDone] = useState(false);
@@ -64,7 +64,7 @@ export default function Preloader() {
             {LETTERS.map((l, i) => (
               <motion.span
                 key={l + i}
-                className="font-display text-4xl font-extralight tracking-[0.1em] text-bone sm:text-6xl"
+                className="font-display text-3xl font-extralight tracking-[0.08em] text-bone sm:text-5xl"
                 initial={{ opacity: 0, y: 26, filter: "blur(8px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 transition={{ duration: 0.9, delay: 0.1 + i * 0.09, ease: EASE }}
@@ -80,7 +80,7 @@ export default function Preloader() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.7 }}
           >
-            by i5
+            by i5 stay
           </motion.span>
 
           <div className="relative mt-12 h-px w-56 overflow-hidden bg-white/10 sm:w-72">

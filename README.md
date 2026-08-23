@@ -1,6 +1,6 @@
-# SMART by i5 — site do empreendimento
+# SMARTER by i5 stay — site do empreendimento
 
-Landing page single-page de alto padrão para o **SMART by i5** (Águas Claras/DF),
+Landing page single-page de alto padrão para o **SMARTER by i5 stay** (Águas Claras/DF),
 construída com Next.js 16 (App Router), TypeScript, Tailwind CSS v4,
 Framer Motion, GSAP ScrollTrigger e Lenis.
 
@@ -98,7 +98,7 @@ src/
 11. **Investir ou morar** — painéis que expandem no hover
 12. **Grupo i5** — contadores animados + explorador das 5 empresas
 13. **Localização** — endereço, acessos, mapa
-14. **CTA final + Footer** — Sinal ZERO e conversão para WhatsApp
+14. **CTA final + Footer** — Sinal facilitado e conversão para WhatsApp
 
 ---
 
@@ -136,10 +136,25 @@ Se trocar a **isométrica dos pavimentos**, revise `scale`/`ty` em
 
 ---
 
-## ⚖️ Observação sobre a marca
+## ⚖️ Observações sobre a marca e o texto
 
-O material de origem (book e renders) está assinado como **i5 STAY**. Como a
-definição foi usar **SMART by i5**, os letreiros "i5 STAY" foram removidos dos
-recortes de imagem. Alguns renders ainda mostram a sinalização **i5** na
-fachada do prédio — é a marca do grupo, então foi mantida. Se o cliente quiser
-o letreiro "SMART" na fachada, será necessário refazer os renders.
+Nome oficial definido pelo cliente: **SMARTER by i5 stay**.
+
+Termos proibidos, já removidos de todo o projeto (verificar antes de qualquer
+novo texto):
+
+- **"studio"** — usar sempre *apartamento* / *apartamentos inteligentes*
+- **"Sinal ZERO"** — a condição é **Sinal facilitado**
+- **"sem intermediários"** — a venda tem intermediário
+- **"churrasqueira a gás"** — apenas *churrasqueira*
+- **"compacto"** na razão 01 dos três pilares (o termo segue permitido no
+  título da seção da planta e no claim da i5 incorp, que é do cliente)
+
+Legendas obrigatórias sob as imagens (componente `ImgNote` em
+`src/components/ui/Reveal.tsx`): **"Apartamento entregue sem mobília"** e
+**"Imagem ilustrativa"**.
+
+Os letreiros "i5 STAY" foram removidos dos recortes de imagem. Alguns renders
+ainda mostram a sinalização **i5** na fachada — é a marca do grupo, então foi
+mantida. Se o cliente quiser o letreiro "SMARTER" na fachada, os renders
+precisam ser refeitos.

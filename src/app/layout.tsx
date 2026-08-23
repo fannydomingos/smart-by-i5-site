@@ -39,11 +39,11 @@ export const metadata: Metadata = {
   },
   description: site.description,
   keywords: [
-    "SMART by i5",
+    "SMARTER by i5 stay",
     "i5 Stay",
     "Águas Claras",
     "apartamento Águas Claras",
-    "studio Águas Claras",
+    "apartamento inteligente Águas Claras",
     "investimento imobiliário DF",
     "i5 Incorp",
   ],

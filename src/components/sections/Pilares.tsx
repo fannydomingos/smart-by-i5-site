@@ -13,42 +13,42 @@ const panels = [
     icon: IconPlan,
     kicker: "Projeto inteligente",
     title: "Uma planta que entrega muito mais espaço",
-    text: "Morar bem não depende apenas de metros quadrados, mas da inteligência no aproveitamento dos espaços. Compacto, sim — mas com acabamento superior, pensado para quem valoriza sofisticação e conforto.",
+    text: "Morar bem não depende apenas de metros quadrados, mas da inteligência no aproveitamento dos espaços. Cada metro quadrado com propósito e acabamento superior, pensado para quem valoriza sofisticação e conforto.",
     bullets: [
       "+ ambientes, + conforto, + espaço",
       "Maior aproveitamento por m²",
       "Endereço melhor, mais perto de tudo",
     ],
     img: "/img/planta.jpg",
-    alt: "Planta humanizada do studio SMART by i5",
+    alt: "Planta humanizada do apartamento SMARTER by i5 stay",
   },
   {
     n: "02",
     icon: IconConcierge,
     kicker: "Comodidade de hotel",
-    title: "Que tal viver com a comodidade de um hotel?",
-    text: "Precisa limpar o apartamento? A internet caiu? Quem instala o ar-condicionado novo? No SMART, serviços pay per use resolvem a sua rotina sob demanda.",
+    title: "Serviços hoteleiros à sua disposição",
+    text: "Precisa limpar o apartamento? A internet caiu? Quem instala o ar-condicionado novo? No SMARTER, serviços pay per use resolvem a sua rotina sob demanda.",
     bullets: [
       "Serviços pay per use sob demanda",
       "Segurança monitorada e internet de alta velocidade",
       "Normas rigorosas de conduta e convivência",
     ],
     img: "/img/cowork.jpg",
-    alt: "Lounge e cowork do SMART by i5",
+    alt: "Lounge e cowork do SMARTER by i5 stay",
   },
   {
     n: "03",
     icon: IconTrend,
     kicker: "Investimento rentável",
-    title: "Por que vale a pena investir no SMART?",
-    text: "Um produto desenhado para performance, locação e valorização — com gestão profissional i5 Stay, que já nasce com 10 anos de experiência em hospitalidade.",
+    title: "Por que vale a pena investir no SMARTER?",
+    text: "Um produto desenhado para performance, locação e valorização — com gestão profissional i5 stay, que já nasce com 10 anos de experiência em hospitalidade.",
     bullets: [
       "Alta demanda de locação por temporada",
       "Locação descomplicada, sem fiador",
       "Bairro com alta valorização",
     ],
     img: "/img/facade-portrait.jpg",
-    alt: "Fachada iluminada do SMART by i5",
+    alt: "Fachada iluminada do SMARTER by i5 stay",
   },
 ];
 
@@ -136,6 +136,9 @@ export default function Pilares() {
                 <div className="absolute inset-0 bg-gradient-to-t from-ink-900/85 via-ink-900/10 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-ink-900/80" />
                 <span className="absolute left-6 top-5 font-display text-6xl font-extralight text-bone/25 lg:text-7xl">
                   {p.n}
+                </span>
+                <span className="absolute bottom-3 right-4 text-[0.62rem] font-light tracking-wide text-bone/60">
+                  Imagem ilustrativa
                 </span>
               </div>
 

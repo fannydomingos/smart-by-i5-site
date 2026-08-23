@@ -10,8 +10,8 @@ export function Logo({
   return (
     <span className={`flex items-center gap-3 ${className}`}>
       <span className="flex flex-col leading-none">
-        <span className="font-display text-[1.35rem] font-light tracking-[0.42em] text-bone sm:text-[1.5rem]">
-          SMART
+        <span className="font-display text-[1.15rem] font-light tracking-[0.3em] text-bone sm:text-[1.3rem]">
+          SMARTER
         </span>
         {!compact && (
           <span className="mt-1 text-[0.56rem] font-light uppercase tracking-[0.3em] text-gold-300/80">
@@ -32,6 +32,9 @@ export function Logo({
           priority
           className="h-6 w-auto"
         />
+        <span className="text-[0.6rem] font-light uppercase tracking-[0.22em] text-muted">
+          stay
+        </span>
       </span>
     </span>
   );

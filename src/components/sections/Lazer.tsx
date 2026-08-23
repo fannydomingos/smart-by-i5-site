@@ -3,14 +3,14 @@
 import Image from "next/image";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Reveal, Stagger, StaggerItem, GoldLine } from "../ui/Reveal";
+import { Reveal, Stagger, StaggerItem, GoldLine, ImgNote } from "../ui/Reveal";
 import { IconGrill, IconSpa, IconView } from "../ui/Icons";
 
 const features = [
   {
     icon: IconGrill,
-    t: "Churrasqueira a gás",
-    d: "Para encontros especiais, sem fumaça e sem complicação.",
+    t: "Churrasqueira",
+    d: "Para receber bem e transformar o fim de semana em encontro.",
   },
   {
     icon: IconSpa,
@@ -76,10 +76,12 @@ export default function Lazer() {
 
           <Reveal delay={0.15}>
             <p className="mt-6 max-w-md text-sm font-light leading-relaxed text-mist">
-              2 unidades com churrasqueira, SPA e vista panorâmica. A
-              privacidade que você merece, no ponto mais alto do projeto.
+              2 unidades com churrasqueira, SPA e vista panorâmica — a
+              privacidade que você merece para receber bem.
             </p>
           </Reveal>
+
+          <ImgNote className="mt-5 text-mist/60">Imagem ilustrativa.</ImgNote>
         </div>
       </div>
 
