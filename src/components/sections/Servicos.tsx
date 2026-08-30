@@ -29,7 +29,7 @@ const faq = [
   {
     icon: IconGear,
     q: "O vaso entupiu?",
-    a: "Suporte para manutenção e pequenos reparos, sem você precisar caçar profissional.",
+    a: "Suporte para manutenção e pequenos reparos, sem você precisar procurar um profissional",
   },
   {
     icon: IconConcierge,
@@ -68,9 +68,9 @@ export default function Servicos() {
           <div>
             <Reveal>
               <h2 className="max-w-xl font-display text-[2rem] font-extralight leading-[1.06] tracking-[-0.02em] text-bone sm:text-[3rem]">
-                Serviços hoteleiros{" "}
+                Que tal viver com a{" "}
                 <span className="text-gold-grad font-light">
-                  à sua disposição.
+                  comodidade de um hotel?
                 </span>
               </h2>
             </Reveal>

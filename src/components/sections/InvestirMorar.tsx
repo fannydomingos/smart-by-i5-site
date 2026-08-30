@@ -36,7 +36,7 @@ const panels = [
     items: [
       "Locação das unidades sem preocupações",
       "Airbnb, Booking e principais plataformas",
-      "Gestão profissional (manutenção e enxoval)",
+      "Gestão profissional (locação, manutenção e enxoval)",
       "Relatórios de prestação de contas com transparência",
       "Bairro com alta valorização",
     ],

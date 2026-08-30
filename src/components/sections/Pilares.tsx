@@ -13,7 +13,7 @@ const panels = [
     icon: IconPlan,
     kicker: "Projeto inteligente",
     title: "Uma planta que entrega muito mais espaço",
-    text: "Morar bem não depende apenas de metros quadrados, mas da inteligência no aproveitamento dos espaços. Cada metro quadrado com propósito e acabamento superior, pensado para quem valoriza sofisticação e conforto.",
+    text: "Morar bem é ter inteligência no aproveitamento dos espaços. Cada metro quadrado com propósito e acabamento superior, pensado para quem valoriza sofisticação e conforto.",
     bullets: [
       "+ ambientes, + conforto, + espaço",
       "Maior aproveitamento por m²",
@@ -60,32 +60,35 @@ export default function Pilares() {
     gsap.registerPlugin(ScrollTrigger);
     const mm = gsap.matchMedia();
 
-    mm.add("(min-width: 1024px) and (prefers-reduced-motion: no-preference)", () => {
-      const el = track.current;
-      const sec = section.current;
-      if (!el || !sec) return;
+    mm.add(
+      "(min-width: 1024px) and (prefers-reduced-motion: no-preference)",
+      () => {
+        const el = track.current;
+        const sec = section.current;
+        if (!el || !sec) return;
 
-      const getDistance = () => el.scrollWidth - window.innerWidth;
+        const getDistance = () => el.scrollWidth - window.innerWidth;
 
-      const tween = gsap.to(el, {
-        x: () => -getDistance(),
-        ease: "none",
-        scrollTrigger: {
-          trigger: sec,
-          start: "top top",
-          end: () => `+=${getDistance() + window.innerHeight * 0.3}`,
-          pin: true,
-          scrub: 0.9,
-          invalidateOnRefresh: true,
-          anticipatePin: 1,
-        },
-      });
+        const tween = gsap.to(el, {
+          x: () => -getDistance(),
+          ease: "none",
+          scrollTrigger: {
+            trigger: sec,
+            start: "top top",
+            end: () => `+=${getDistance() + window.innerHeight * 0.3}`,
+            pin: true,
+            scrub: 0.9,
+            invalidateOnRefresh: true,
+            anticipatePin: 1,
+          },
+        });
 
-      return () => {
-        tween.scrollTrigger?.kill();
-        tween.kill();
-      };
-    });
+        return () => {
+          tween.scrollTrigger?.kill();
+          tween.kill();
+        };
+      },
+    );
 
     return () => mm.revert();
   }, []);
@@ -108,7 +111,8 @@ export default function Pilares() {
         </div>
         <Reveal>
           <h2 className="max-w-2xl font-display text-[2rem] font-extralight leading-[1.06] tracking-[-0.02em] text-bone sm:text-[2.9rem]">
-            Tudo em <span className="text-gold-grad font-light">um só lugar</span>
+            Tudo em{" "}
+            <span className="text-gold-grad font-light">um só lugar</span>
           </h2>
         </Reveal>
       </div>

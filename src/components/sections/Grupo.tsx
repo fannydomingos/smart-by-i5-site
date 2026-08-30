@@ -55,29 +55,47 @@ function Counter({
   to,
   prefix = "",
   suffix = "",
+  delay = 0,
 }: {
   to: number;
   prefix?: string;
   suffix?: string;
+  /** atraso em ms — faz os quatro números subirem em cascata */
+  delay?: number;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.6 });
+  /* A margem negativa segura o disparo até o card entrar de fato na tela.
+     Sem ela a contagem começa quando o card apenas encosta na borda de baixo
+     e termina antes de o visitante chegar na seção. */
+  const inView = useInView(ref, {
+    once: true,
+    amount: 0.6,
+    margin: "0px 0px -20% 0px",
+  });
   const [val, setVal] = useState(0);
 
   useEffect(() => {
     if (!inView) return;
     let raf = 0;
-    const start = performance.now();
-    const dur = 1600;
-    const tick = (now: number) => {
-      const t = Math.min(1, (now - start) / dur);
-      const eased = 1 - Math.pow(1 - t, 3);
-      setVal(Math.round(to * eased));
-      if (t < 1) raf = requestAnimationFrame(tick);
+    const dur = 2200;
+
+    const run = () => {
+      const start = performance.now();
+      const tick = (now: number) => {
+        const t = Math.min(1, (now - start) / dur);
+        const eased = 1 - Math.pow(1 - t, 3);
+        setVal(Math.round(to * eased));
+        if (t < 1) raf = requestAnimationFrame(tick);
+      };
+      raf = requestAnimationFrame(tick);
     };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [inView, to]);
+
+    const timer = window.setTimeout(run, delay);
+    return () => {
+      window.clearTimeout(timer);
+      cancelAnimationFrame(raf);
+    };
+  }, [inView, to, delay]);
 
   return (
     <span ref={ref} className="tabular-nums">
@@ -137,7 +155,12 @@ export default function Grupo() {
             >
               <s.icon className="h-5 w-5 text-gold-400/80" />
               <div className="mt-5 font-display text-[2.2rem] font-extralight leading-none text-bone">
-                <Counter to={s.value} prefix={s.prefix} suffix={s.suffix} />
+                <Counter
+                  to={s.value}
+                  prefix={s.prefix}
+                  suffix={s.suffix}
+                  delay={i * 160}
+                />
               </div>
               <div className="mt-2.5 text-[0.68rem] font-light uppercase tracking-[0.16em] text-muted">
                 {s.label}
@@ -275,7 +298,7 @@ export default function Grupo() {
             <div className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-white/[0.07]">
               {[
                 "10 anos de experiência com hospedagem",
-                "Um dos melhores hotéis avaliados da região",
+                "Um dos hotéis mais bem avaliados da região",
                 "Excelência em operação e atendimento",
                 "Confiança para morar, investir e rentabilizar",
               ].map((t) => (
