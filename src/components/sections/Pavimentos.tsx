@@ -7,6 +7,21 @@ import { Reveal, GoldLine, ImgNote } from "../ui/Reveal";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
+/**
+ * O zoom de cada aba é próprio, não mais 1.6 para todos.
+ *
+ * A moldura tem proporção 800x856, então a janela visível no zoom Z fica com
+ * 800/Z de largura. Com 1.6 para todos isso dava 500 px — mais estreito que a
+ * laje do térreo e a do 1º, que por isso apareciam cortadas nas laterais. Aqui
+ * cada valor respeita a largura da sua laje na imagem:
+ *
+ *     pav. tipo   318 px  ->  cabe até 2,52   (usando 1,95)
+ *     1º pav.     530 px  ->  cabe até 1,51   (usando 1,42)
+ *     térreo      581 px  ->  cabe até 1,38   (usando 1,30)
+ *
+ * E o ty centraliza a laje: ty = -scale * (centro - 0,5) * 100, com o centro
+ * medido na imagem (0,250 / 0,494 / 0,749 da altura).
+ */
 const floors = [
   {
     id: "geral",
@@ -21,24 +36,24 @@ const floors = [
     label: "Pav. tipo",
     title: "Pavimentos 2 ao 8",
     text: "Unidades inteligentes para o seu ritmo — finais 1 a 7 em cada pavimento.",
-    scale: 1.6,
-    ty: 48,
+    scale: 1.95,
+    ty: 48.8,
   },
   {
     id: "primeiro",
     label: "1º pavimento",
     title: "Lazer e bem-estar",
     text: "Lazer panorâmico com SPA, churrasqueira e brinquedoteca, além das unidades 101 a 107.",
-    scale: 1.6,
-    ty: 3,
+    scale: 1.42,
+    ty: 0.9,
   },
   {
     id: "terreo",
     label: "Térreo",
     title: "Chegada e conveniência",
     text: "Garagens, recepção com acesso em 2 etapas e unidades garden.",
-    scale: 1.6,
-    ty: -46,
+    scale: 1.3,
+    ty: -32.4,
   },
 ];
 
@@ -69,8 +84,13 @@ export default function Pavimentos() {
                   animate={{ scale: f.scale, y: `${f.ty}%` }}
                   transition={{ duration: 1.1, ease: EASE }}
                 >
+                  {/* O sufixo -v2 no nome não é enfeite: a URL do otimizador de
+                      imagem do Next é /_next/image?url=<caminho>, ou seja, a
+                      chave do cache é o caminho. Trocando só o conteúdo do
+                      arquivo, navegador e CDN continuam servindo a versão
+                      antiga. Mudar o nome é o que invalida o cache. */}
                   <Image
-                    src="/img/pavimentos.jpg"
+                    src="/img/pavimentos-v2.jpg"
                     alt="Vista isométrica dos pavimentos do SMARTER by i5 stay"
                     fill
                     sizes="(max-width: 1024px) 100vw, 55vw"

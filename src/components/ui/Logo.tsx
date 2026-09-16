@@ -1,41 +1,30 @@
 import Image from "next/image";
 
+/**
+ * Marca oficial: SMARTER com "by i5 stay" abaixo, na arte enviada pelo cliente.
+ *
+ * O lockup é empilhado e largo (2,57:1), então quem manda aqui é a altura — a
+ * largura vem sozinha. No cabeçalho ela encolhe um pouco quando a página rola,
+ * para a barra ficar mais discreta.
+ */
 export function Logo({
-  className = "",
+  className,
   compact = false,
 }: {
+  /** sobrescreve a altura padrão, ex.: "h-12 sm:h-14" no rodapé */
   className?: string;
   compact?: boolean;
 }) {
+  const height = className ?? (compact ? "h-8 sm:h-9" : "h-10 sm:h-11");
+
   return (
-    <span className={`flex items-center gap-3 ${className}`}>
-      <span className="flex flex-col leading-none">
-        <span className="font-display text-[1.15rem] font-light tracking-[0.3em] text-bone sm:text-[1.3rem]">
-          SMARTER
-        </span>
-        {!compact && (
-          <span className="mt-1 text-[0.56rem] font-light uppercase tracking-[0.3em] text-gold-300/80">
-            Águas Claras
-          </span>
-        )}
-      </span>
-      <span className="h-7 w-px bg-gradient-to-b from-transparent via-gold-400/50 to-transparent" />
-      <span className="flex items-center gap-1.5">
-        <span className="text-[0.6rem] font-light uppercase tracking-[0.2em] text-muted">
-          by
-        </span>
-        <Image
-          src="/img/i5-mark.png"
-          alt="i5"
-          width={97}
-          height={114}
-          priority
-          className="h-6 w-auto"
-        />
-        <span className="text-[0.6rem] font-light uppercase tracking-[0.22em] text-muted">
-          stay
-        </span>
-      </span>
-    </span>
+    <Image
+      src="/img/logo-smarter.png"
+      alt="SMARTER by i5 stay"
+      width={906}
+      height={352}
+      priority
+      className={`w-auto transition-all duration-500 ${height}`}
+    />
   );
 }
