@@ -57,14 +57,25 @@ export default function Header() {
         }`}
       >
         <div className="mx-auto flex h-[var(--header-h)] max-w-[1400px] items-center justify-between px-5 sm:px-8">
-          <button
-            onClick={() => scrollToSection("#top")}
-            aria-label="Ir para o topo"
-            data-cursor="topo"
-            className="shrink-0"
-          >
-            <Logo compact={scrolled} />
-          </button>
+          <div className="flex shrink-0 items-center gap-3 sm:gap-4">
+            <button
+              onClick={() => scrollToSection("#top")}
+              aria-label="Ir para o topo"
+              data-cursor="topo"
+              className="shrink-0"
+            >
+              <Logo compact={scrolled} />
+            </button>
+
+            {/* Localização ao lado da marca, separada por um traço vertical. */}
+            <span
+              aria-hidden
+              className="h-6 w-px shrink-0 bg-gradient-to-b from-transparent via-gold-400/50 to-transparent sm:h-7"
+            />
+            <span className="whitespace-nowrap text-[0.54rem] font-light uppercase leading-none tracking-[0.22em] text-gold-300/80 sm:text-[0.58rem] sm:tracking-[0.26em]">
+              Águas Claras
+            </span>
+          </div>
 
           <nav className="hidden items-center gap-1 xl:flex">
             {nav.map((n) => (

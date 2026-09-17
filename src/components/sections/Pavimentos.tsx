@@ -8,18 +8,20 @@ import { Reveal, GoldLine, ImgNote } from "../ui/Reveal";
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 /**
- * O zoom de cada aba é próprio, não mais 1.6 para todos.
+ * O zoom de cada aba é próprio, não um valor único para todos.
  *
- * A moldura tem proporção 1400x1568, então a janela visível no zoom Z fica com
- * 1400/Z de largura. Um valor único para todos cortava as lajes mais largas.
- * Cada zoom aqui respeita a largura da sua laje na imagem:
+ * A moldura tem proporção 1400x1568 — a mesma da imagem — então a janela
+ * visível no zoom Z fica com 1400/Z de largura. Cada valor aqui respeita a
+ * largura da sua laje na imagem, senão a laje aparece cortada nas laterais:
  *
- *     pav. tipo    614 px  ->  cabe até 2,28   (usando 1,95)
- *     1º pav.      978 px  ->  cabe até 1,43   (usando 1,35)
- *     térreo      1045 px  ->  cabe até 1,34   (usando 1,26)
+ *     pav. tipo    281 px  ->  cabe até 4,98   (usando 1,85)
+ *     1º pav.      963 px  ->  cabe até 1,45   (usando 1,36)
+ *     térreo       991 px  ->  cabe até 1,41   (usando 1,33)
  *
- * E o ty centraliza a laje: ty = -scale * (centro - 0,5) * 100, com o centro
- * medido na imagem (0,206 / 0,438 / 0,709 da altura).
+ * tx e ty levam o centro da laje ao centro da moldura:
+ *     t = -scale * (centro - 0,5) * 100
+ * O tx importa por causa do pavimento tipo, que nesta arte fica recuado à
+ * direita (centro em 0,680 da largura) — sem ele a laje sairia da janela.
  */
 const floors = [
   {
@@ -28,6 +30,7 @@ const floors = [
     title: "Um empreendimento bem planejado",
     text: "Cada espaço do SMARTER foi organizado para oferecer conforto, praticidade e privacidade em todos os momentos.",
     scale: 1,
+    tx: 0,
     ty: 0,
   },
   {
@@ -35,24 +38,27 @@ const floors = [
     label: "Pav. tipo",
     title: "Pavimentos 2 ao 8",
     text: "Unidades inteligentes para o seu ritmo — finais 1 a 7 em cada pavimento.",
-    scale: 1.95,
-    ty: 57.3,
+    scale: 1.85,
+    tx: -33.3,
+    ty: 46.3,
   },
   {
     id: "primeiro",
     label: "1º pavimento",
     title: "Lazer e bem-estar",
     text: "Lazer panorâmico com SPA, churrasqueira e brinquedoteca, além das unidades 101 a 107.",
-    scale: 1.35,
-    ty: 8.3,
+    scale: 1.36,
+    tx: 1.1,
+    ty: 1,
   },
   {
     id: "terreo",
     label: "Térreo",
     title: "Chegada e conveniência",
     text: "Garagens, recepção com acesso em 2 etapas e unidades garden.",
-    scale: 1.26,
-    ty: -21,
+    scale: 1.33,
+    tx: 0.5,
+    ty: -34.6,
   },
 ];
 
@@ -77,19 +83,19 @@ export default function Pavimentos() {
           {/* Interactive isometric */}
           <Reveal amount={0.15}>
             <div className="relative overflow-hidden rounded-2xl card-hair bg-ink-900">
-              <div className="relative aspect-[1400/1568] w-full overflow-hidden">
+              <div className="relative aspect-[1400/1568] w-full overflow-hidden bg-[#000513]">
                 <motion.div
                   className="absolute inset-0"
-                  animate={{ scale: f.scale, y: `${f.ty}%` }}
+                  animate={{ scale: f.scale, x: `${f.tx}%`, y: `${f.ty}%` }}
                   transition={{ duration: 1.1, ease: EASE }}
                 >
-                  {/* O sufixo -v4 no nome não é enfeite: a URL do otimizador de
+                  {/* O sufixo -v5 no nome não é enfeite: a URL do otimizador de
                       imagem do Next é /_next/image?url=<caminho>, ou seja, a
                       chave do cache é o caminho. Trocando só o conteúdo do
                       arquivo, navegador e CDN continuam servindo a versão
                       antiga. Mudar o nome é o que invalida o cache. */}
                   <Image
-                    src="/img/pavimentos-v4.jpg"
+                    src="/img/pavimentos-v5.jpg"
                     alt="Vista isométrica dos pavimentos do SMARTER by i5 stay"
                     fill
                     sizes="(max-width: 1024px) 100vw, 55vw"
