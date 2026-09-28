@@ -67,12 +67,16 @@ export default function Header() {
               <Logo compact={scrolled} />
             </button>
 
-            {/* Localização ao lado da marca, separada por um traço vertical. */}
+            {/* Localização ao lado da marca, separada por um traço vertical.
+                O bairro é argumento de venda, então vem em corpo maior, peso
+                500 e dourado cheio — destaca sem brigar com a marca. O
+                espacejamento é menor que o dos rótulos pequenos do site: em
+                corpo maior, tracking largo demais só rouba largura da barra. */}
             <span
               aria-hidden
-              className="h-6 w-px shrink-0 bg-gradient-to-b from-transparent via-gold-400/50 to-transparent sm:h-7"
+              className="h-7 w-px shrink-0 bg-gradient-to-b from-transparent via-gold-400/60 to-transparent sm:h-8"
             />
-            <span className="whitespace-nowrap text-[0.54rem] font-light uppercase leading-none tracking-[0.22em] text-gold-300/80 sm:text-[0.58rem] sm:tracking-[0.26em]">
+            <span className="whitespace-nowrap text-[0.66rem] font-medium uppercase leading-none tracking-[0.16em] text-gold-300 sm:text-[0.78rem] sm:tracking-[0.2em]">
               Águas Claras
             </span>
           </div>
