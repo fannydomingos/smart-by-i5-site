@@ -11,12 +11,14 @@ import Pilares from "@/components/sections/Pilares";
 import Planta from "@/components/sections/Planta";
 import Servicos from "@/components/sections/Servicos";
 import Lazer from "@/components/sections/Lazer";
+import KidsPet from "@/components/sections/KidsPet";
 import Inteligencia from "@/components/sections/Inteligencia";
 import Pavimentos from "@/components/sections/Pavimentos";
 import DesignSec from "@/components/sections/DesignSec";
 import InvestirMorar from "@/components/sections/InvestirMorar";
 import Grupo from "@/components/sections/Grupo";
 import Localizacao from "@/components/sections/Localizacao";
+import Galeria from "@/components/sections/Galeria";
 import CtaFinal from "@/components/sections/CtaFinal";
 import Footer from "@/components/sections/Footer";
 
@@ -69,12 +71,14 @@ export default function Home() {
         <Planta />
         <Servicos />
         <Lazer />
+        <KidsPet />
         <Inteligencia />
         <Pavimentos />
         <DesignSec />
         <InvestirMorar />
         <Grupo />
         <Localizacao />
+        <Galeria />
         <CtaFinal />
       </main>
 

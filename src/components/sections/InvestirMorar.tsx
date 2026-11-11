@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Reveal, GoldLine, ImgNote } from "../ui/Reveal";
@@ -15,8 +14,6 @@ const panels = [
     icon: IconSofa,
     kicker: "Para quem mora",
     title: "Serviços hoteleiros e menos preocupação.",
-    img: "/img/cowork.jpg",
-    alt: "Lounge e cowork do SMARTER by i5 stay",
     items: [
       "Segurança monitorada 24h",
       "Planta que oferece mais para o seu dia a dia",
@@ -31,8 +28,6 @@ const panels = [
     icon: IconTrend,
     kicker: "Para quem investe",
     title: "Um produto desenhado para performance.",
-    img: "/img/invest-building.jpg",
-    alt: "Fachada do SMARTER by i5 stay ao anoitecer",
     items: [
       "Locação das unidades sem preocupações",
       "Airbnb, Booking e principais plataformas",
@@ -55,7 +50,7 @@ export default function InvestirMorar() {
       <div className="relative mx-auto max-w-[1400px] px-5 sm:px-8">
         <div className="mb-6 flex items-center gap-4">
           <span className="font-display text-[0.6rem] tracking-[0.3em] text-gold-400">
-            10
+            11
           </span>
           <GoldLine className="w-16" />
           <span className="text-[0.6rem] font-light uppercase tracking-[0.3em] text-muted">
@@ -93,21 +88,12 @@ export default function InvestirMorar() {
                   flexGrow: isHover ? 1.55 : isDim ? 0.75 : 1,
                 }}
                 transition={{ duration: 0.85, ease: EASE }}
-                className="group relative flex-1 overflow-hidden rounded-2xl card-hair"
+                className="group relative flex-1 overflow-hidden rounded-2xl card-hair bg-ink-900/50 transition-colors duration-700 hover:bg-ink-900/80"
               >
-                <Image
-                  src={p.img}
-                  alt={p.alt}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className={`object-cover transition-all duration-[1.4s] ease-[cubic-bezier(.16,1,.3,1)] ${
-                    isHover ? "scale-105 opacity-75" : "scale-100 opacity-50"
-                  }`}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/72 to-ink-950/35" />
-
+                {/* O PDF é explícito: "Investir ou morar permanece somente
+                    com texto". As fotos saíram daqui. */}
                 <div className="relative flex h-full min-h-[520px] flex-col justify-end p-7 sm:p-10">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-full border border-gold-400/30 bg-ink-950/50 text-gold-300 backdrop-blur-sm">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-full border border-gold-400/30 text-gold-300">
                     <p.icon className="h-5 w-5" />
                   </span>
 

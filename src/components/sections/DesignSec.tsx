@@ -2,46 +2,40 @@
 
 import Image from "next/image";
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
 import { Reveal, Stagger, StaggerItem, GoldLine, ImgNote } from "../ui/Reveal";
 
 const details = [
   {
     n: "01",
     t: "Iluminação arquitetônica",
-    d: "Luzes que valorizam os volumes e revelam a beleza da fachada ao anoitecer.",
+    d: "Luzes que valorizam os volumes e revelam a fachada ao anoitecer.",
   },
   {
     n: "02",
     t: "Linhas contemporâneas",
-    d: "Traços retos e horizontais que criam ritmo, elegância e sensação de leveza.",
+    d: "Traços retos e horizontais que criam ritmo e leveza.",
   },
   {
     n: "03",
     t: "Materiais nobres",
-    d: "Texturas e acabamentos de alta qualidade que garantem durabilidade e sofisticação.",
+    d: "Texturas e acabamentos que unem durabilidade e sofisticação.",
   },
   {
     n: "04",
     t: "Presença elegante",
-    d: "Um projeto que se destaca pela harmonia entre forma, luz e funcionalidade.",
+    d: "Harmonia entre forma, luz e funcionalidade.",
   },
 ];
 
 export default function DesignSec() {
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
 
   return (
     <section className="relative overflow-hidden bg-ink-900 py-20 sm:py-28">
       <div className="relative mx-auto max-w-[1400px] px-5 sm:px-8">
         <div className="mb-6 flex items-center gap-4">
           <span className="font-display text-[0.6rem] tracking-[0.3em] text-gold-400">
-            09
+            10
           </span>
           <GoldLine className="w-16" />
           <span className="text-[0.6rem] font-light uppercase tracking-[0.3em] text-muted">
@@ -50,25 +44,24 @@ export default function DesignSec() {
         </div>
 
         <div className="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
-          {/* Image */}
+          {/* Imagem horizontal, inteira e sem camada escura — como a
+              referência do PDF. Sem parallax: ele cortaria a foto. */}
           <Reveal amount={0.15}>
             <div
               ref={ref}
-              className="relative aspect-[4/5] overflow-hidden rounded-2xl card-hair"
+              className="overflow-hidden rounded-2xl card-hair lg:mt-14"
             >
-              <motion.div className="absolute -inset-y-[18%] inset-x-0" style={{ y }}>
-                <Image
-                  src="/img/facade-portrait.jpg"
-                  alt="Fachada contemporânea do SMARTER by i5 stay com iluminação arquitetônica"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 45vw"
-                  className="object-cover"
-                />
-              </motion.div>
-              <div className="absolute inset-0 bg-gradient-to-t from-ink-900/70 via-transparent to-transparent" />
+              <Image
+                src="/img/g01-fachada-fim-tarde.jpg"
+                alt="Fachada contemporânea do SMARTER by i5 stay com iluminação arquitetônica"
+                width={1800}
+                height={1021}
+                sizes="(max-width: 1024px) 100vw, 45vw"
+                className="h-auto w-full"
+              />
             </div>
 
-            <ImgNote className="mt-3">Imagem ilustrativa.</ImgNote>
+            <ImgNote className="mt-3">Imagem meramente ilustrativa</ImgNote>
           </Reveal>
 
           {/* Copy */}

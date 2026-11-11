@@ -30,8 +30,8 @@ type Spot = {
 const spots: Spot[] = [
   {
     id: "cama",
-    x: 22,
-    y: 15,
+    x: 17.2,
+    y: 15.7,
     icon: IconBed,
     title: "Cama queen",
     text: "Conforto e espaço para o seu descanso, sem abrir mão da circulação do ambiente.",
@@ -40,8 +40,8 @@ const spots: Spot[] = [
   },
   {
     id: "cozinha",
-    x: 88,
-    y: 17,
+    x: 89.7,
+    y: 17.9,
     icon: IconKitchen,
     title: "Cozinha completa com 2 bancadas",
     text: "Mais superfície para preparar e aproveitar — uma cozinha completa, de verdade.",
@@ -50,8 +50,8 @@ const spots: Spot[] = [
   },
   {
     id: "armario",
-    x: 30,
-    y: 52,
+    x: 26.0,
+    y: 56.6,
     icon: IconCabinet,
     title: "Armário com função de divisão",
     text: "Integra e organiza os ambientes com inteligência. Um único elemento que guarda e separa.",
@@ -60,8 +60,8 @@ const spots: Spot[] = [
   },
   {
     id: "mesa",
-    x: 65,
-    y: 42,
+    x: 64.4,
+    y: 45.5,
     icon: IconTable,
     title: "Mesa para 4 lugares",
     text: "Perfeita para refeições e bons momentos. Recebe sem improviso.",
@@ -70,8 +70,8 @@ const spots: Spot[] = [
   },
   {
     id: "office",
-    x: 19,
-    y: 79,
+    x: 13.9,
+    y: 86.3,
     icon: IconDesk,
     title: "Espaço para home office ou apoio",
     text: "Versatilidade para trabalhar, estudar ou criar — com cama de apoio e mesa de escritório.",
@@ -80,8 +80,8 @@ const spots: Spot[] = [
   },
   {
     id: "entrada",
-    x: 90,
-    y: 60,
+    x: 91.9,
+    y: 65.4,
     icon: IconDoor,
     title: "Entrada com melhor circulação",
     text: "Acesso prático e fluido para o dia a dia — a entrada pela circulação ganha espaço de poltrona.",
@@ -161,10 +161,10 @@ export default function Planta() {
             <div className="relative">
               <div className="relative overflow-hidden rounded-2xl card-hair bg-ink-950 shadow-lift">
                 <Image
-                  src="/img/planta.jpg"
+                  src="/img/planta-alta.jpg"
                   alt="Planta humanizada do apartamento SMARTER by i5 stay"
-                  width={790}
-                  height={610}
+                  width={1944}
+                  height={1533}
                   sizes="(max-width: 1024px) 100vw, 62vw"
                   className="h-auto w-full"
                 />
@@ -213,7 +213,7 @@ export default function Planta() {
 
               <ImgNote className="mt-3">
                 Planta humanizada. Apartamento entregue sem mobília. Imagem
-                ilustrativa.
+                meramente ilustrativa.
               </ImgNote>
 
               {/* atalhos por nome — só no desktop, onde há espaço lateral */}

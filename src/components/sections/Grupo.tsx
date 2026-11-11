@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import type { CSSProperties } from "react";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useInView } from "framer-motion";
 import { Reveal, GoldLine } from "../ui/Reveal";
@@ -16,6 +17,8 @@ const companies = [
     tags: ["Melhores espaços", "Melhores localizações", "Mais qualidade de vida"],
     text: "Viver bem não significa ter mais espaço. Significa ter espaços melhores. Cada metro quadrado com propósito, com projetos modernos, funcionais e inteligentes, nas melhores localizações, mais perto do trabalho, dos serviços, do lazer e de tudo o que importa.",
     img: "/img/nasce-building.jpg",
+    w: 720,
+    h: 1010,
   },
   {
     id: "imob",
@@ -23,7 +26,9 @@ const companies = [
     claim: "Menos intermediários. Mais possibilidades.",
     tags: ["Menos burocracia", "Menos barreiras", "Mais possibilidades"],
     text: "Comprar um imóvel é uma decisão importante. Mas não precisa ser complicado. Menos burocracia, menos barreiras e mais possibilidades, com informação clara, transparência, agilidade, tecnologia e inteligência para tornar a compra mais simples, direta e acessível.",
-    img: "/img/facade-dusk.jpg",
+    img: "/img/i5-imob.jpg",
+    w: 1312,
+    h: 1199,
   },
   {
     id: "hotel",
@@ -31,7 +36,9 @@ const companies = [
     claim: "Tecnologia que simplifica. Hospitalidade que acolhe.",
     tags: ["Tecnologia simplifica", "Conforto acolhe", "Pessoas fazem a diferença"],
     text: "Uma grande experiência vai muito além de uma boa estrutura. Tecnologia simplifica, conforto acolhe e pessoas fazem a diferença. Um atendimento próximo e humano para tornar cada estadia mais simples, agradável e especial. Há mais de 10 anos, somos reconhecidos pelos nossos clientes como um dos melhores hotéis da região.",
-    img: "/img/hotel-i5.jpg",
+    img: "/img/hotel-i5-v2.jpg",
+    w: 1600,
+    h: 941,
   },
   {
     id: "stay",
@@ -40,6 +47,8 @@ const companies = [
     tags: ["Seu imóvel", "Nosso cuidado", "Sua tranquilidade"],
     text: "Seu imóvel. Nosso cuidado. Sua tranquilidade. Para quem tem o imóvel, gestão simplificada com tecnologia e inteligência. Menos preocupação. Mais tranquilidade. Para quem mora, uma experiência simples, prática e descomplicada, com tecnologia e serviços que facilitam o dia a dia.",
     img: "/img/rooftop.jpg",
+    w: 1600,
+    h: 900,
   },
   {
     id: "cowork",
@@ -47,7 +56,9 @@ const companies = [
     claim: "Seu negócio em outro nível.",
     tags: ["24 horas", "Tudo pronto", "Mais valor"],
     text: "O espaço onde você trabalha também fala sobre a sua empresa. 24 horas com a estrutura e a conveniência de um hotel. Tudo pronto, sem burocracia e sem preocupação com a operação. Mais valor, mais profissionalismo para o seu negócio e uma experiência melhor para o seu cliente.",
-    img: "/img/cowork.jpg",
+    img: "/img/cowork-reuniao-v2.jpg",
+    w: 900,
+    h: 1600,
   },
 ];
 
@@ -125,7 +136,7 @@ export default function Grupo() {
       <div className="relative mx-auto max-w-[1400px] px-5 sm:px-8">
         <div className="mb-6 flex items-center gap-4">
           <span className="font-display text-[0.6rem] tracking-[0.3em] text-gold-400">
-            11
+            12
           </span>
           <GoldLine className="w-16" />
           <span className="text-[0.6rem] font-light uppercase tracking-[0.3em] text-muted">
@@ -242,7 +253,13 @@ export default function Grupo() {
           </div>
 
           {/* Image */}
-          <div className="relative aspect-[4/5] overflow-hidden rounded-2xl card-hair lg:sticky lg:top-28 lg:aspect-auto lg:h-[560px]">
+          <div
+            /* No celular o quadro assume a proporção da foto em exibição,
+               então nada é cortado nem sobra faixa vazia. No desktop o
+               painel tem altura fixa e a foto preenche. */
+            style={{ "--ar": `${c.w} / ${c.h}` } as CSSProperties}
+            className="relative aspect-[var(--ar)] overflow-hidden rounded-2xl bg-ink-950/60 card-hair lg:sticky lg:top-28 lg:aspect-auto lg:h-[560px]"
+          >
             <AnimatePresence mode="popLayout">
               <motion.div
                 key={c.id}
@@ -261,8 +278,7 @@ export default function Grupo() {
                 />
               </motion.div>
             </AnimatePresence>
-            <div className="absolute inset-0 bg-gradient-to-t from-ink-950/90 via-ink-950/20 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 p-7">
+            <div className="absolute inset-x-0 bottom-0 p-5">
               <AnimatePresence mode="wait">
                 <motion.p
                   key={c.id + "-cap"}

@@ -29,7 +29,7 @@ const items = [
 const smart = [
   { icon: IconBulb, t: "Iluminação inteligente", d: "Mais eficiência, segurança e economia nas áreas comuns." },
   { icon: IconAutomation, t: "Automação predial", d: "Tecnologia que otimiza recursos e simplifica a gestão." },
-  { icon: IconPin, t: "Localização estratégica", d: "Conectado ao que importa, perto de tudo que você precisa." },
+  { icon: IconPin, t: "Localização estratégica", d: "Conectado ao que importa, perto de tudo o que você precisa." },
   { icon: IconPlan, t: "Plantas inteligentes", d: "Ambientes bem distribuídos para o máximo de conforto." },
 ];
 
@@ -46,7 +46,7 @@ export default function Inteligencia() {
       <div className="relative mx-auto max-w-[1400px] px-5 sm:px-8">
         <div className="mb-6 flex items-center gap-4">
           <span className="font-display text-[0.6rem] tracking-[0.3em] text-gold-400">
-            07
+            08
           </span>
           <GoldLine className="w-16" />
           <span className="text-[0.6rem] font-light uppercase tracking-[0.3em] text-muted">
@@ -70,9 +70,8 @@ export default function Inteligencia() {
                   className="object-cover"
                 />
               </motion.div>
-              <div className="absolute inset-0 bg-gradient-to-t from-ink-950/85 via-transparent to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 p-7">
-                <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-ink-950/60 px-3.5 py-1.5 backdrop-blur-md">
+              <div className="absolute inset-x-0 bottom-0 flex justify-start p-5">
+                <span className="inline-flex items-center gap-2 rounded-full bg-ink-950/85 px-3.5 py-1.5">
                   <span className="h-1.5 w-1.5 animate-shimmer rounded-full bg-gold-300" />
                   <span className="text-[0.6rem] font-light uppercase tracking-[0.22em] text-bone">
                     Delivery · Ferramentaria
@@ -81,7 +80,7 @@ export default function Inteligencia() {
               </div>
             </div>
 
-            <ImgNote className="mt-3">Imagem ilustrativa.</ImgNote>
+            <ImgNote className="mt-3">Imagem meramente ilustrativa</ImgNote>
           </Reveal>
 
           {/* Copy + grid */}
@@ -120,15 +119,8 @@ export default function Inteligencia() {
         </div>
 
         {/* A inteligência muda tudo */}
-        <div className="relative mt-16 overflow-hidden rounded-2xl card-hair sm:mt-24">
-          <Image
-            src="/img/skyline.jpg"
-            alt="Skyline noturno"
-            fill
-            sizes="100vw"
-            className="object-cover opacity-70"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-ink-950/75 via-ink-950/55 to-ink-950/85" />
+        {/* Fundo chapado: o PDF mostra "Diferenciais" sem foto atrás do texto. */}
+        <div className="relative mt-16 overflow-hidden rounded-2xl card-hair bg-ink-900/50 sm:mt-24">
 
           <div className="relative px-6 py-14 sm:px-12 sm:py-20">
             <Reveal>

@@ -19,7 +19,10 @@ const panels = [
       "Maior aproveitamento por m²",
       "Endereço melhor, mais perto de tudo",
     ],
-    img: "/img/planta.jpg",
+    img: "/img/planta-alta.jpg",
+    w: 1944,
+    h: 1533,
+    inteira: true,
     alt: "Planta humanizada do apartamento SMARTER by i5 stay",
   },
   {
@@ -34,6 +37,8 @@ const panels = [
       "Normas rigorosas de conduta e convivência",
     ],
     img: "/img/cowork.jpg",
+    w: 1600,
+    h: 1334,
     alt: "Lounge e cowork do SMARTER by i5 stay",
   },
   {
@@ -47,7 +52,9 @@ const panels = [
       "Locação descomplicada, sem fiador",
       "Bairro com alta valorização",
     ],
-    img: "/img/facade-portrait.jpg",
+    img: "/img/g11-fachada-anoitecer.jpg",
+    w: 1800,
+    h: 1018,
     alt: "Fachada iluminada do SMARTER by i5 stay",
   },
 ];
@@ -60,6 +67,10 @@ export default function Pilares() {
     gsap.registerPlugin(ScrollTrigger);
     const mm = gsap.matchMedia();
 
+    // No desktop a seção fixa e a rolagem vertical empurra o trilho.
+    // No celular isso não é confiável — a barra do navegador muda a altura
+    // da tela e o pin se perde —, então lá a rolagem lateral é por arrasto,
+    // com encaixe em cada painel (ver as classes do trilho).
     mm.add(
       "(min-width: 1024px) and (prefers-reduced-motion: no-preference)",
       () => {
@@ -96,7 +107,7 @@ export default function Pilares() {
   return (
     <section
       ref={section}
-      className="relative overflow-hidden bg-ink-950 lg:h-[100svh]"
+      className="relative bg-ink-950 lg:h-[100svh] lg:overflow-hidden"
     >
       {/* Heading (absolute on desktop so it sits over the pinned track) */}
       <div className="relative z-20 mx-auto max-w-[1400px] px-5 pt-20 sm:px-8 lg:absolute lg:inset-x-0 lg:pt-16">
@@ -118,32 +129,44 @@ export default function Pilares() {
       </div>
 
       {/* Track */}
-      <div className="lg:flex lg:h-full lg:items-center">
+      <div className="snap-x snap-mandatory overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:flex lg:h-full lg:items-center lg:overflow-visible lg:pb-0">
         <div
           ref={track}
-          className="flex flex-col gap-8 px-5 py-12 sm:px-8 lg:w-max lg:flex-row lg:gap-10 lg:px-[6vw] lg:pb-0 lg:pt-28"
+          className="flex w-max flex-row gap-5 px-5 pt-10 sm:px-8 lg:gap-10 lg:px-[6vw] lg:pt-28"
         >
           {panels.map((p) => (
             <article
               key={p.n}
-              className="group relative flex shrink-0 flex-col overflow-hidden rounded-2xl card-hair bg-ink-900/70 shadow-lift lg:h-[62vh] lg:w-[70vw] lg:flex-row xl:w-[62vw]"
+              className="group relative flex w-[84vw] shrink-0 snap-center flex-col overflow-hidden rounded-2xl card-hair bg-ink-900/70 shadow-lift lg:h-auto lg:w-[78vw] lg:flex-row lg:snap-align-none xl:w-[70vw]"
             >
-              {/* Image */}
-              <div className="relative h-56 w-full shrink-0 overflow-hidden sm:h-72 lg:h-full lg:w-[46%]">
-                <Image
-                  src={p.img}
-                  alt={p.alt}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 32vw"
-                  className="object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.06]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink-900/85 via-ink-900/10 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-ink-900/80" />
-                <span className="absolute left-6 top-5 font-display text-6xl font-extralight text-bone/25 lg:text-7xl">
-                  {p.n}
-                </span>
-                <span className="absolute bottom-3 right-4 text-[0.62rem] font-light tracking-wide text-bone/60">
-                  Imagem ilustrativa
-                </span>
+              {/* Imagem — quadro horizontal, centrado na coluna.
+                  Antes a foto preenchia toda a altura do card, que é alto e
+                  estreito: imagem horizontal nesse formato perde as laterais.
+                  Agora o quadro segue a proporção das fotos (16:10) e a
+                  coluna só acomoda esse quadro. */}
+              <div className="relative shrink-0 p-4 sm:p-5 lg:flex lg:w-[52%] lg:items-center lg:p-6">
+                <div
+                  className="relative w-full overflow-hidden rounded-xl bg-ink-950/50"
+                  style={{ aspectRatio: `${p.w} / ${p.h}` }}
+                >
+                  <Image
+                    src={p.img}
+                    alt={p.alt}
+                    fill
+                    sizes="(max-width: 1024px) 92vw, 36vw"
+                    className={`transition-transform duration-[1.4s] ease-[cubic-bezier(.16,1,.3,1)] ${
+                      p.inteira
+                        ? "object-contain p-2"
+                        : "object-cover group-hover:scale-[1.04]"
+                    }`}
+                  />
+                  <span className="absolute left-5 top-4 font-display text-5xl font-extralight text-bone/30 [text-shadow:0_2px_12px_rgba(4,7,13,0.6)] lg:text-6xl">
+                    {p.n}
+                  </span>
+                  <span className="absolute bottom-2.5 right-3.5 text-[0.6rem] font-light tracking-wide text-bone/70 [text-shadow:0_1px_6px_rgba(4,7,13,0.9)]">
+                    Imagem meramente ilustrativa
+                  </span>
+                </div>
               </div>
 
               {/* Copy */}

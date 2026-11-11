@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
 import { Logo } from "./ui/Logo";
 import { nav, waHref } from "@/lib/site";
-import { IconMenu, IconClose, IconWhatsApp } from "./ui/Icons";
+import { IconMenu, IconClose, IconWhatsApp, IconArrow } from "./ui/Icons";
 import { scrollToSection, lockScroll } from "./SmoothScroll";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -12,7 +12,6 @@ const EASE = [0.16, 1, 0.3, 1] as const;
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [hidden, setHidden] = useState(false);
 
   const { scrollYProgress } = useScroll();
   const progress = useSpring(scrollYProgress, {
@@ -22,17 +21,14 @@ export default function Header() {
   });
 
   useEffect(() => {
-    let last = window.scrollY;
-    const onScroll = () => {
-      const y = window.scrollY;
-      setScrolled(y > 40);
-      setHidden(y > 420 && y > last && !open);
-      last = y;
-    };
+    /* A barra fica sempre visível, como no PDF: só troca de fundo ao sair
+       do topo. Nada de esconder ao rolar para baixo — o menu é o acesso
+       rápido às seções e precisa estar sempre à mão. */
+    const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
-  }, [open]);
+  }, []);
 
   useEffect(() => {
     lockScroll(open);
@@ -48,12 +44,14 @@ export default function Header() {
     <>
       <motion.header
         initial={{ y: -100, opacity: 0 }}
-        animate={{ y: hidden ? -100 : 0, opacity: 1 }}
-        transition={{ duration: 0.7, ease: EASE, delay: hidden ? 0 : 0.1 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.7, ease: EASE, delay: 0.1 }}
         className={`fixed inset-x-0 top-0 z-[120] transition-colors duration-500 ${
           scrolled
             ? "glass border-b border-white/[0.06]"
-            : "border-b border-transparent"
+            : // No topo a barra fica sobre a foto clara: a sombra no próprio
+              // texto garante leitura sem escurecer a imagem.
+              "border-b border-transparent [text-shadow:0_1px_2px_rgba(4,7,13,0.6),0_2px_16px_rgba(4,7,13,0.85)]"
         }`}
       >
         <div className="mx-auto flex h-[var(--header-h)] max-w-[1400px] items-center justify-between px-5 sm:px-8">
@@ -104,8 +102,8 @@ export default function Header() {
               className="group relative hidden overflow-hidden rounded-full border border-gold-400/40 px-5 py-2.5 text-[0.68rem] font-light uppercase tracking-[0.2em] text-gold-200 transition-colors duration-500 hover:text-ink-950 sm:inline-flex sm:items-center sm:gap-2"
             >
               <span className="absolute inset-0 -translate-y-full bg-gradient-to-r from-gold-300 to-gold-500 transition-transform duration-500 ease-[cubic-bezier(.16,1,.3,1)] group-hover:translate-y-0" />
-              <IconWhatsApp className="relative h-3.5 w-3.5" />
-              <span className="relative">WhatsApp</span>
+              <span className="relative">Fale com a i5</span>
+              <IconArrow className="relative h-3.5 w-3.5 -rotate-45" />
             </a>
 
             <button

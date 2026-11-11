@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# cópias de trabalho geradas pelo app (contêm node_modules e passam do limite do GitHub)
+/Claude outputs/

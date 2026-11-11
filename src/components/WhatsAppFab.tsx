@@ -18,6 +18,8 @@ export default function WhatsAppFab() {
 
   useEffect(() => {
     if (!show) return;
+    // No celular o rótulo cobriria o conteúdo, então só o ícone aparece.
+    if (!window.matchMedia("(min-width: 640px)").matches) return;
     const t = window.setTimeout(() => setExpanded(true), 900);
     const t2 = window.setTimeout(() => setExpanded(false), 5200);
     return () => {

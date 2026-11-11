@@ -71,7 +71,7 @@ export default function Pavimentos() {
       <div className="relative mx-auto max-w-[1400px] px-5 sm:px-8">
         <div className="mb-6 flex items-center gap-4">
           <span className="font-display text-[0.6rem] tracking-[0.3em] text-gold-400">
-            08
+            09
           </span>
           <GoldLine className="w-16" />
           <span className="text-[0.6rem] font-light uppercase tracking-[0.3em] text-muted">
@@ -103,7 +103,6 @@ export default function Pavimentos() {
                   />
                 </motion.div>
 
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink-950/60 via-transparent to-transparent" />
               </div>
 
               {/* Tabs */}
@@ -132,7 +131,7 @@ export default function Pavimentos() {
               </div>
             </div>
 
-            <ImgNote className="mt-3">Imagem ilustrativa.</ImgNote>
+            <ImgNote className="mt-3">Imagem meramente ilustrativa</ImgNote>
           </Reveal>
 
           {/* Copy */}

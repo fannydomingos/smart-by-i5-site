@@ -1,8 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
 import { Reveal, Stagger, StaggerItem, GoldLine } from "../ui/Reveal";
 import {
   IconNature,
@@ -35,13 +33,6 @@ const pillars = [
 ];
 
 export default function Bairro() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1.12, 1.02, 1.12]);
 
   return (
     <section className="relative overflow-hidden bg-ink-900">
@@ -100,18 +91,19 @@ export default function Bairro() {
 
         {/* Image side */}
         <div
-          ref={ref}
-          className="relative order-1 min-h-[52vh] overflow-hidden lg:order-2 lg:min-h-full"
+          className="relative order-1 aspect-[2000/1332] overflow-hidden lg:order-2 lg:aspect-auto lg:min-h-full"
         >
-          <motion.div className="absolute -inset-y-[14%] inset-x-0" style={{ y, scale }}>
+          {/* Sem parallax: ele reenquadra a foto e, no celular, cortava a
+              vista aérea. A imagem fica fixa, na proporção original. */}
+          <div className="absolute inset-0">
             <Image
-              src="/img/aguas-claras.jpg"
-              alt="Vista aérea de Águas Claras ao entardecer"
+              src="/img/aguas-claras-v2.jpg"
+              alt="Vista aérea de Águas Claras"
               fill
               sizes="(max-width: 1024px) 100vw, 58vw"
               className="object-cover"
             />
-          </motion.div>
+          </div>
           <div className="absolute inset-0 bg-gradient-to-r from-ink-900 via-transparent to-transparent lg:from-ink-900 lg:via-ink-900/10" />
           <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-ink-900 to-transparent" />
 

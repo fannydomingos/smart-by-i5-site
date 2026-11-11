@@ -117,6 +117,7 @@ export function SplitWords({
   stagger = 0.055,
   as: Tag = "span",
   highlight = [],
+  highlightClassName = "text-gold-grad",
 }: {
   text: string;
   className?: string;
@@ -126,6 +127,13 @@ export function SplitWords({
   as?: "span" | "h1" | "h2" | "h3" | "p";
   /** indexes (0-based) of words that get the gold treatment */
   highlight?: number[];
+  /**
+   * Tratamento das palavras destacadas. O padrão é o degradê dourado, que
+   * funciona sobre fundo escuro. Sobre fotografia clara ele some — o degradê
+   * termina em dourado escuro e, por ser recorte de fundo no texto, não
+   * aceita sombra. Nesses casos passe um dourado chapado e claro.
+   */
+  highlightClassName?: string;
 }) {
   const words = text.split(" ");
   const MotionTag = motion[Tag] as typeof motion.span;
@@ -150,7 +158,7 @@ export function SplitWords({
         >
           <motion.span
             className={`inline-block ${
-              highlight.includes(i) ? "text-gold-grad" : ""
+              highlight.includes(i) ? highlightClassName : ""
             } ${wordClassName ?? ""}`}
             variants={{
               hidden: { y: "110%", opacity: 0 },
@@ -210,7 +218,7 @@ export function ImgNote({
     <p
       className={`text-[0.6rem] font-light leading-relaxed text-muted/75 ${className}`}
     >
-      {children ?? "Imagem ilustrativa."}
+      {children ?? "Imagem meramente ilustrativa"}
     </p>
   );
 }
